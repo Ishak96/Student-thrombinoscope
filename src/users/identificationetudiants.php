@@ -1,0 +1,87 @@
+<?php
+if(isset($_COOKIE['poste'])){
+header('location: ./etudiant.php');
+}
+	require_once "../include/functions.inc.php";
+	require_once "../include/util.inc.php";
+	setcookie("tentative",0,time()+3600);
+	
+	if(isset($_POST['CONNECTER'])){		
+		
+		if (isset($_POST['nom']) and isset($_POST['prenom'])){
+			$nom = $_POST['nom'];
+			$prenom = $_POST['prenom'];
+			
+			$nom=str_replace("-", "_", $nom);
+			$nom=str_replace(" ", "_", $nom);
+			$nom=str_replace("'", "", $nom);
+			
+			$prenom=str_replace("-", "_", $prenom);
+			$prenom=str_replace(" ", "_", $prenom);
+			$prenom=str_replace("'", "", $prenom);
+						
+			setcookie("nom",$nom,time()+3600);
+			setcookie("prenom",$prenom,time()+3600);				
+		}		
+		elseif(isset($_COOKIE['nom']) and isset($_COOKIE['prenom'])){
+			$nom = $_COOKIE['nom'];
+			$prenom = $_COOKIE['prenom'];
+		}
+			
+		if (verifyEtudiant($_POST['numero'],$_POST['groupe'],$nom,$prenom) and $_COOKIE['stop'] != $nom) {
+			setcookie("groupe",$_POST['groupe'],time()+3600);
+			setcookie("poste",true,time()+3600);
+			setcookie("numero",$_POST['numero'],time()+3600);
+			sleep(1);
+			header('location: ./etudiant.php');
+			exit();
+		}
+		elseif(isset($_COOKIE['stop']) and $_COOKIE['stop'] == $nom) {
+			$stop = true;
+		}
+		else if($_COOKIE['tentative']<'3'){
+			setcookie("tentative",$_COOKIE['tentative']+1,time()+3600);
+			$tent = true;
+		}
+		else {
+			setcookie("stop",$_COOKIE['nom'],time()+300);
+			sleep(1);
+			header('location: ../index.html');
+		}
+	}
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>Central Authentification Service</title>
+<meta charset="UTF-8"/>
+<link rel="shortcut icon" href="../images/authentification.png" type="images/png" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/identificationcss.css" />
+
+</head>
+<body>
+<header>
+	<h1>Service Central d'authentifications</h1>
+	<h2>trombinoscopes</h2>
+	<h2 style="padding-top: 2%;">Universit&eacute; de Cergy-Pontoise</h2>
+	<a href="https://www.u-cergy.fr/fr/index.html"><img src="../images/logo.jpg" alt="Cergy université" height="100" width="140"></a>
+</header>
+	<?php
+	if(isset($stop) and $stop){
+		echo Echec_login_etudiant(true,$nom,$prenom);
+		echo loginFomulaEtudiant(false);
+	}
+	elseif(!isset($stop) and isset($tent) and $tent) {
+		echo Echec_login_etudiant(false,$nom,$prenom,$_COOKIE['tentative']);
+		echo loginFomulaEtudiant(true);		
+	}
+	else {
+		echo loginFomulaEtudiant(false);
+	}	
+	?>
+	<footer>
+		<p>Site créé par HACHOUD Rassem et AYAD Ishak,le 25/Mars/2018</p>
+	</footer>
+</body>
+</html>

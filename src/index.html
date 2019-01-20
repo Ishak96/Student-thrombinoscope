@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>Trombinoscopes</title>
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" href="./images/index.png" type="images/png" />
+	<link href="./css/style.css" rel="stylesheet">
+	<style>
+		h2{
+ 			color: #570342;
+ 			text-align: center;
+ 			font-size: 25pt;
+		}
+		h3{
+			color: #570342;
+			margin-left: 50px;
+		}
+		ul{
+			list-style-type: none;
+		}
+		.blockRight{
+			float: right;
+			width: 30%;
+			height: 400px;
+			overflow: auto;
+			border: 2px solid #570342;
+		}
+		.blockLeft{
+			float: left;
+			width: 69%;
+			height: 400px;
+			overflow: auto;
+			background-color: #E6E6E6;
+		}
+		footer{
+			position: absolute;
+			margin-top: 415px; 
+			width: 99%;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1 style="position: absolute; margin-left: 33%;margin-top: 3%;">Trombinoscopes UCP</h1>
+		<img src="./images/logo.jpg" alt="logo">
+	</header>
+	<nav>
+		<ul>
+			<li><a href="./admin/pages/admin.php">Administration</a></li>
+			<li><a href="./users/identificationprofsecret.php">Enseignant et Secrétaires</a></li>
+			<li><a href="./users/identificationetudiants.php">Étudiants</a></li>
+		</ul>
+	</nav>
+	<section class="blockLeft">
+		<h2>Accueil</h2>
+		<article>
+			<h3>Utilisateurs:</h3>
+			<p>
+				Le gestionnaire du site: active les créations de filières et de groupes et gère à l’aide du site un fichier de login / password  pour les enseignants et les secrétaires pédagogiques. Pour chaque filière ou groupe, le gestionnaire renseigne l’effectif correspondant.
+			</p>
+			<p>
+				Les secrétaires pédagogiques et les enseignants: utilisent un mécanisme de session (sur la base du login / password communiqué par le gestionnaire) pour pouvoir accéder aux trombinoscopes. Chaque trombinoscope est généré par filière ou groupe TD / TP sur une page web.
+			</p>
+			<p>
+				Les étudiants: choisissent leur formation et leur groupe de TD (voire de TP) dans des listes prédéfinies (en fonction de l’arborescence créée par le gestionnaire) pour pouvoir déposer une photo personnelle pour le trombinoscope.
+			</p>
+		</article>
+	</section>
+	<aside class="blockRight">
+		<h2>Liens utiles:</h2>
+		<ul>
+			<li><a href="http://httpd.apache.org/docs/current/howto/auth.html">Authentification et autorisation</a></li>
+			<li><a href="http://www.htaccess-guide.com/password-protection/">Guide htaccess</a></li>
+			<li><a href="http://yscorporate.com/2017/10/16/trombinoscope-ameliorer-communication-interne-presence-reseaux-sociaux/">Trombinoscopes à l'entreprise</a></li>
+		</ul>
+		<h2>Contacts:</h2>
+		<ul >
+			<li><a href="mailto:rassem@gmail.com" style="color: black;">rassem@gmail.com</a></li>
+			<li><a href="mailto:rassem@gmail.com" style="color: black;">ishak@gmail.com</a></li>
+			<li>Téléphone:0622733289</li>
+		</ul>
+	</aside>
+	<footer>
+		<p>Site créé par HACHOUD Rassem et AYAD Ishak,le 25/Mars/2018</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+L1_MIPI,Groupe_TD_A,L1TrambinoA
+L1_MIPI,Groupe_TD_CMI,L1TrambinoI
+L1_MIPI,Groupe_TD_B,L1TrambinoB
+L1_MIPI,Groupe_TD_C,L1TrambinoC
+L1_MIPI,Groupe_TD_D,L1TrambinoD
+L1_MIPI,Groupe_TD_E,L1TrambinoE
+L1_MIPI,Groupe_TD_F,L1TrambinoF
+L2_MI,Groupe_TD_A,L2TrambinoA
+L2_MI,Groupe_TD_B,L2TrambinoB
+L2_MI,Groupe_TD_C,L2TrambinoC
+L2_MI,Groupe_TD_CMI,L2TrambinoI
+L2_MI,Groupe_TD_D,L2TrambinoD
+L3_I,Groupe_TD_A,L3TrambinoA
+L3_I,Groupe_TD_CMI,L3TrambinoI
+L3_I,Groupe_TD_B,L3TrambinoB
